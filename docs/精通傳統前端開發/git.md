@@ -54,3 +54,5 @@ git clone https://github.com/university-tw/web-book.git
 Example:  
 ![](.git_images/6c10efb5.png)
 
+## 補充
+* [Hash](/docs/前端網頁資訊安全/hash)
