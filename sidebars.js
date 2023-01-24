@@ -24,7 +24,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Tutorial',
-      items: ['tutorial-basics/create-a-document'],
+      items: ['精通傳統前端開發/create-a-document'],
     },
   ],
    */
