@@ -2,46 +2,38 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# 關於 Web 小學堂
+&nbsp;&nbsp;&nbsp;&nbsp;Web網頁開發乃為當代最常見之專案表現形式，透過 Web 開發，任何人都可以快速地將想法實現，在極短的時間內建置可運行的 POC。在當代，我們日常生活中所能觸及的科技大部分皆基於 Web2.0 的延伸應用，如 Facebook ，這款人人手機中都有的社交應用程式，背後仍是有著一個後端的 API 伺服器作為資料增刪查改。  
 
-Let's discover **Docusaurus in less than 5 minutes**.
+&nbsp;&nbsp;&nbsp;&nbsp;Web其實引領著現代軟體行業的發展，FAANG （Facebook, Apple, Amazon, Netflix, Google）這五間世界最受歡迎的五大科技公司無一不使用到 Web 相關技術，Facebook 本就是 Web 行業起家，建立社交媒體網站、 Apple 在 iOS 中使用到的各項基礎設施 API 也都透過 Web 技術建置，如 APNs 使蘋果裝置得以連接至 Apple 的伺服器接收推播通知，Amazon 建立了電商平台網站、Netflix 建置影音串流平台網站、Google 開發網站搜尋引擎，由此可見 Web 相關技術在軟體行業中屬於十分重要的一環。   
 
-## Getting Started
+&nbsp;&nbsp;&nbsp;&nbsp;前端開發相關技術在近年來持續發展，不但使開發更加簡便、更將相關技術延伸至行動裝置端，像是 Cordova 可以將 WebApp 快速地轉換成應用程式，可以直接上架 Google Play 及 App Store ，大幅降低網頁前端工程師進入應用程式開發領域的門檻，又如 Facebook 推出的框架 React 也有對應到的 React Native ，學習一個 React 語法不但能開發現代前端，建置具有高效能的網站，同時也可以透過 React Native 框架建置應用程式，而另外由 DCloud 公司推出的 Uni-app 框架則提供了 Native （行動裝置環境）的 API ，供前端工程師呼叫，前端工程師只需要像往常一樣的寫網頁，就可以使用這些原生 API 呼叫原本傳統前端無法達成的諸如藍芽、無線網路、拍照錄影等等各種功能。   
 
-Get started by **creating a new site**.
+&nbsp;&nbsp;&nbsp;&nbsp;本讀書會旨在使每個成員皆具有獨立開發前端網頁的能力，透過互相督促學習、分享各自所學，提供一個友善新手的環境，讓成員能夠互相討論所遇到的問題、分享自己在學習過程的心得，同時製作專案作為成果展示及未來的履歷累積，我們將透過書本選讀、自編教材教學、互相討論在短時間內學習此些開發技術，期盼透過幾次討論時間的努力及平常的練習與專案實作，為未來的職涯發展鋪好一條康莊大道。  
+目前組織清大的讀書會，成員大多由資工系、清華學院學士班組成
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+## 課程內容
+主要課程分為以下幾個部分：
 
-### What you'll need
+- [精通傳統前端開發](docs/精通傳統前端開發/intro.md)
+- [前端網頁專案實作](docs/前端網頁專案實作/intro.md)
+- [邁向現代前端開發](docs/邁向現代前端開發/intro.md)
+- [前端網頁資訊安全](docs/前端網頁資訊安全/intro.md)
+- [後端程式資訊安全](docs/後端程式資訊安全/intro.md)
 
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+:::tip
 
-## Generate a new site
+課程內容會持續增加，教材將直接更新於此網頁
 
-Generate a new Docusaurus site using the **classic template**.
+:::
 
-The classic template will automatically be added to your project after you run the command:
+:::caution
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+所有課程內容採用 GPLv3 開源授權
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+:::
 
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+## 課程目標
+* 使成員精進Web前端的開發技術
+* 使成員擁有獨立開發網站的能力
+* 使成員累積專案開發數量與經歷

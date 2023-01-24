@@ -71,7 +71,7 @@ const config = {
           },
           {to: '/blog', label: '紀錄', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/university-tw/web-book',
             label: 'GitHub',
             position: 'right',
           },
