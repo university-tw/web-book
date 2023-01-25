@@ -10,7 +10,7 @@ sidebar_position: 2
 確保你有一個 Github 帳號，沒有的話就註冊一個：https://github.com/signup  
 同時申請 Education Pack： https://education.github.com/pack
 
-### JetBrains 帳號：
+### JetBrains 帳號
 確保你有一個JetBrains 帳號，沒有的話就註冊一個 https://account.jetbrains.com/login  
 同時申請 Education License：https://www.jetbrains.com/community/education/#students  
 你可以用 GitHub Education Pack 驗證，也可以自己拿學校信箱（gapp）或證件驗證
@@ -30,7 +30,8 @@ sidebar_position: 2
 課程教學過程以JetBrains IDE為主，並不會教學其他IDE的使用方式
 :::
 
-- **JetBrains Webstorm** （請見[帳號申請]）：https://www.jetbrains.com/webstorm/ 如果你因為任何原因無法申請到 JetBrains 的 License ，再考慮其他選項
+- **JetBrains Webstorm** （請見 [帳號申請](#帳號申請)）：https://www.jetbrains.com/webstorm/  
+  如果你因為任何原因無法申請到 JetBrains 的 License ，再考慮其他選項
 - JetBrains Idea Community：https://www.jetbrains.com/idea/download
 - VSCode：https://code.visualstudio.com/
 
