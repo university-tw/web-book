@@ -1,0 +1,82 @@
+---
+title: JavaScript 的繼承關係
+description: JavaScript 的原型鏈繼承
+keywords: [JavaScript, Prototype, Prototype Chain]
+date: 2023-02-02T01:24:10
+---
+
+# JavaScript 的繼承關係
+在 JavaScript 中，萬物皆物件，物件的繼承關係是透過原型鍊來實現的，每個物件都有一個原型物件，這個原型物件也是一個物件，而這個原型物件也有一個原型物件，這樣一直往上，直到原型物件為 null 為止，這就是原型鍊。
+而如果要產生一個物件，我們需要使用 `new` 關鍵字，這個物件的原型物件就是 `new` Function （Class） 的 `prototype` 屬性。
+
+## 原型鍊
+假如我們定義以下幾個 Class（這邊以 Class 做演示因為比較易懂）：
+
+```js
+class A {}
+class B extends A {}
+class C extends B {}
+```
+
+如果轉換為等價的 Function 的話，就會是這樣：
+
+```js
+function A() {}
+function B() {}
+B.prototype = new A()
+function C() {}
+C.prototype = new B()
+```
+
+這邊的繼承關係是 A 繼承 B，B 繼承 C，那麼 A、B、C 的原型鍊就會是這樣的：
+
+```js
+A.prototype = B.prototype = C.prototype = null
+```
+
+原型鍊是從下往上看的，也就是說 C 的原型物件是 B，B 的原型物件是 A，A 的原型物件是 null。
+`__proto__` 就是原型物件，也就是說 `__proto__` 就是原型鍊的下一個物件。
+
+## __proto__ 與 prototype
+你可以把 `__proto__` 視為原型物件，而 `prototype` 則是原型鍊的下一個物件。
+`__proto__` 是物件的屬性，而 `prototype` 則是 Function 的屬性。
+
+```js
+function A() {}
+A.prototype = new B()
+A.__proto__ === Function.prototype // true
+B.__proto__ === Function.prototype // true
+A.prototype.__proto__ === B.prototype // true
+```
+
+## instanceof
+`instanceof` 是用來判斷物件是否為某個 Class 的實例，也就是說 `instanceof` 是用來判斷物件的原型鍊是否有某個 Class 的原型物件。
+
+```js
+function A() {}
+function B() {}
+B.prototype = new A()
+function C() {}
+C.prototype = new B()
+
+const c = new C()
+c instanceof C // true
+c instanceof B // true
+c instanceof A // true
+```
+
+
+## 屬性的存取
+在 JavaScript 中存取一個物件的屬性時，會先從自己的屬性中找，如果沒有找到，就會從原型物件中找，如果還是沒有找到，就會從原型物件的原型物件中找，直到找到為止，如果還是沒有找到，就會回傳 undefined。
+
+```js
+function A() {}
+A.prototype.a = 1
+function B() {}
+B.prototype = new A()
+function C() {}
+C.prototype = new B()
+
+const c = new C()
+c.a // 1
+```

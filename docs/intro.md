@@ -15,7 +15,7 @@ sidebar_position: 1
 ## 課程內容
 主要課程分為以下幾個部分：
 
-- [精通傳統前端開發](docs/精通傳統前端開發/intro.md)
+- [精通傳統前端開發](docs/精通傳統前端開發/intro.mdx)
 - [前端網頁專案實作](docs/前端網頁專案實作/intro.md)
 - [邁向現代前端開發](docs/邁向現代前端開發/intro.md)
 - [前端網頁資訊安全](docs/前端網頁資訊安全/intro.md)
