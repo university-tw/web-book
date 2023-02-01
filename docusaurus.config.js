@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Web小學堂',
-  tagline: 'Web小學堂 - 沈迷學習Web',
+  tagline: '沈迷學習Web',
   url: 'https://web.about.university.tw',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -59,7 +59,7 @@ const config = {
       navbar: {
         title: 'Web 小學堂',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Logo',
           src: 'img/logo.svg',
         },
         items: [
@@ -81,29 +81,29 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: '教材',
             items: [
               {
-                label: '教材',
+                label: '教材內容',
                 to: '/docs/intro',
               },
             ],
           },
           {
-            title: 'More',
+            title: '其他',
             items: [
               {
-                label: 'Blog',
+                label: '紀錄',
                 to: '/blog',
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/university-tw/web-book',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `© ${new Date().getFullYear()} Web小學堂，教材模板使用 Docusaurus`,
       },
       prism: {
         theme: lightCodeTheme,
