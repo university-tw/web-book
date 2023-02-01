@@ -1,0 +1,357 @@
+---
+title: JavaScript 的演進
+description: 這篇文章將介紹 JavaScript 的演進，從 傳統前端常用的 ES5 到 2020 年的 ECMAScript 2020。
+image: https://i.imgur.com/1ZQ2Z9r.png
+keywords: [JavaScript, ECMAScript, ES5, ES6, ES2017, ES2018, ES2019, ES2020]
+date: 2023-02-02T00:52:50
+---
+
+# JavaScript 的演進
+我們在傳統前端介紹過 ES5，當時是最主流的瀏覽器支援的版本，但是後來隨著時間的演進， JavaScript 陸續加入了許多新的語法，這些新的特性（不論是否是語法糖），都加深了許多人對於 JavaScript 這個語言的喜愛，也讓 JavaScript 成為了一個越來越高階的程式語言。
+
+## 演變的過程
+閱讀一下下面這幾份 JavaScript 代碼，你會發現每一個版本會有他自己的風格。
+
+### ES5
+```js
+var a = 1;
+var b = 2;
+var c = 3;
+var d = 4;
+var e = 5;
+
+var avg = (a + b + c + d + e) / 5;
+console.log(avg);
+```
+
+### ES6 加入了 let 和 const
+```js
+let avg = 0;
+const a = 1;
+const b = 2;
+const c = 3;
+const d = 4;
+const e = 5;
+
+avg = (a + b + c + d + e) / 5;
+console.log(avg);
+```
+
+### ES2018 加入了 陣列及物件展開式 ...
+```js
+const nums = [1, 2, 3, 4, 5];
+const avg = (...nums) => {
+  const sum =  nums.reduce((a, b) => a + b);
+  return sum / nums.length;
+};
+console.log(avg(...nums));
+```
+
+其實 ES6 是 JavaScript 變化最大的版本，從 ES6 開始，JavaScript 逐漸從一個簡單的語言，變成了一個越來越高階的程式語言，這也是為什麼 ES6 之後的版本，都會以 ES2017、ES2018、ES2019、ES2020 這樣的命名方式。
+後面的版本其實差異不大，都僅有加入一些語法糖。
+當時在傳統前端的時代，有許多瀏覽器其實沒有原生支援 ES6，所以我們會使用 Babel 這個工具，將 ES6 轉換成 ES5，這樣就可以在不支援瀏覽器上執行了。
+
+## ES6 後的 JavaScript 語法重點介紹
+以下的幾個重點會在未來我們學到 React 框架時會用到非常多，建議可以稍微熟悉一下。
+
+### 陣列展開式
+```js
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const arr3 = [...arr1, ...arr2];
+console.log(arr3); // [1, 2, 3, 4, 5, 6]
+```
+
+### 物件展開式
+```js
+const obj1 = { a: 1, b: 2 };
+const obj2 = { c: 3, d: 4 };
+const obj3 = { ...obj1, ...obj2 };
+console.log(obj3); // { a: 1, b: 2, c: 3, d: 4 }
+```
+
+### 物件屬性提取
+```js
+const obj = { a: 1, b: 2, c: 3 };
+const { a, b } = obj;
+console.log(a, b); // 1 2
+```
+
+### 物件屬性重命名
+```js
+const obj = { a: 1, b: 2, c: 3 };
+const { a: x, b: y } = obj;
+console.log(x, y); // 1 2
+```
+
+### 物件屬性預設值
+```js
+const obj = { a: 1, b: 2, c: 3 };
+const { a, b, d = 4 } = obj;
+console.log(a, b, d); // 1 2 4
+```
+
+### 物件屬性解構
+```js
+const obj = { a: 1, b: 2, c: 3 };
+const { a, ...rest } = obj;
+console.log(a, rest); // 1 { b: 2, c: 3 }
+```
+
+### 物件定義方法簡寫
+- 傳統寫法：
+```js
+const obj = {
+  a: 1,
+  b: 2,
+  add: function() {
+    return this.a + this.b;
+  }
+};
+console.log(obj.add()); // 3
+```
+
+- ES6 寫法：
+```js
+const obj = {
+  a: 1,
+  b: 2,
+  add() {
+    return this.a + this.b;
+  }
+};
+console.log(obj.add()); // 3
+```
+
+### Traditional Function Declaration / Arrow Function
+傳統函式宣告：
+```js
+function add(a, b) {
+  return a + b;
+}
+console.log(add(1, 2)); // 3
+```
+
+Arrow Function：
+```js
+const add = (a, b) => a + b;
+console.log(add(1, 2)); // 3
+```
+
+### 函式參數預設值
+```js
+const add = (a = 1, b = 2) => a + b;
+console.log(add()); // 3
+console.log(add(3)); // 5
+console.log(add(3, 4)); // 7
+```
+
+### 函式參數解構
+```js
+const add = ({ a = 1, b = 2 }) => a + b;
+console.log(add({})); // 3
+console.log(add({ a: 3 })); // 5
+console.log(add({ a: 3, b: 4 })); // 7
+```
+
+### Promise
+```js
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('success');
+  }, 1000);
+});
+
+promise.then((result) => {
+  console.log(result); // success
+});
+```
+
+### Fetch with Promise
+```js
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then((response) => response.json())
+  .then((result) => {
+    console.log(result); // { userId: 1, id: 1, title: "delectus aut autem", completed: false }
+  });
+```
+
+### async / await
+```js
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('success');
+  }, 1000);
+});
+
+const asyncFunc = async () => {
+  const result = await promise;
+  console.log(result); // success
+};
+
+await asyncFunc();
+```
+
+### Fetch with async / await
+```js
+const asyncFunc = async () => {
+  const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+  const result = await response.json();
+  console.log(result); // { userId: 1, id: 1, title: "delectus aut autem", completed: false }
+};
+
+await asyncFunc();
+```
+
+### Template Literal
+```js
+const name = 'John';
+const age = 18;
+const str = `Hello, I'm ${name}, I'm ${age} years old.`;
+console.log(str); // Hello, I'm John, I'm 18 years old.
+```
+
+### Nullish Coalescing Operator
+```js
+const a = null;
+const b = undefined;
+const c = 0;
+const d = false;
+const e = '';
+const f = NaN;
+const g = 'Hello';
+
+console.log(a ?? 'default'); // default
+console.log(b ?? 'default'); // default
+console.log(c ?? 'default'); // 0
+console.log(d ?? 'default'); // false
+console.log(e ?? 'default'); // ''
+console.log(f ?? 'default'); // NaN
+console.log(g ?? 'default'); // Hello
+```
+
+:::tip
+接下來的 Class 語法非必讀，在 React 中雖然會用到，但我們大部分採用 Functional Component，所以不用太在意。
+:::
+
+:::caution
+在 JavaScript 中，其實並沒有 Class 這個東西，他只是語法糖而已，在 JavaScript 引擎的底層，還是用的是原型鍊，所以在使用 Class 時，要注意一些細節，例如 `this` 的指向、`super` 的使用等等，這些都是需要注意的地方，如果你對這些不熟悉，可以參考 [MDN](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Classes)。
+:::
+### Class
+```js
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  sayHello() {
+    console.log(`Hello, I'm ${this.name}`);
+  }
+}
+
+const person = new Person('John');
+person.sayHello(); // Hello, I'm John
+```
+
+### Class Inheritance
+```js
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  sayHello() {
+    console.log(`Hello, I'm ${this.name}`);
+  }
+}
+
+class Student extends Person {
+  constructor(name, school) {
+    super(name);
+    this.school = school;
+  }
+
+  sayHello() {
+    super.sayHello();
+    console.log(`I'm a student of ${this.school}`);
+  }
+}
+
+const student = new Student('John', 'MIT');
+student.sayHello();
+// Hello, I'm John
+// I'm a student of MIT
+```
+
+### Class Static Method
+```js
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  sayHello() {
+    console.log(`Hello, I'm ${this.name}`);
+  }
+
+  static sayHelloToAll() {
+    console.log('Hello, everyone');
+  }
+}
+
+Person.sayHelloToAll(); // Hello, everyone
+```
+
+### Class Getter / Setter
+```js
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  set name(value) {
+    this._name = value;
+  }
+}
+
+const person = new Person('John');
+console.log(person.name); // John
+```
+
+### Object Define Property with getter / setter
+```js
+const obj = {};
+Object.defineProperty(obj, 'name', {
+  get() {
+    return this._name;
+  },
+  set(value) {
+    this._name = value;
+  }
+});
+
+obj.name = 'John';
+console.log(obj.name); // John
+```
+
+### Class Private Field
+```js
+class Person {
+  #name;
+
+  constructor(name) {
+    this.#name = name;
+  }
+
+  sayHello() {
+    console.log(`Hello, I'm ${this.#name}`);
+  }
+}
+
+const person = new Person('John');
+person.sayHello(); // Hello, I'm John
+```
