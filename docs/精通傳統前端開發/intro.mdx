@@ -59,3 +59,16 @@ $.ajax({
 });
 ```
 是不是比 XMLHttpRequest 簡單又直觀多了呢？
+
+:::tip補充
+在 ES6 加入的新語法中，新增了 `fetch` 這個函式
+它可以用來發送 HTTP 請求，並且可以用 `async` / `await` 來處理非同步的回應
+這也是目前最常被使用的 HTTP 請求方法
+```js
+async function fetchExample() {
+    const response = await fetch('https://example.com');
+    const data = await response.json();
+    console.log(data);
+}
+```
+:::

@@ -1,0 +1,71 @@
+---
+title: jQuery 教學
+description: jQuery 教學
+keywords: [jQuery, 網頁前端]
+date: 2023-02-02T21:45:46
+---
+
+## 介紹
+jQuery 是個在傳統前端時期最廣為人知且被最多人使用的函式庫，即使是在現在沒有流行了，jQuery 依然佔了市場上超過 70% 的網站使用率<sup>[1](https://trends.builtwith.com/javascript/jQuery)</sup>。
+
+## jQuery 技術
+
+## 安裝 jQuery
+如果要在傳統前端中安裝 jQuery 的話，你可以在 `<head></head>` 中或 `</body>` 的前一行加入以下的 `<script>` 標籤：
+```html
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+```
+
+現代前端安裝 jQuery 的方式則是使用 npm（雖然不太流行在現代前端中使用 jQuery，不過你想要還是可以的）：
+```bash
+npm install jquery
+```
+
+## jQuery 語法
+
+## `Fluent Interface` Design Pattern
+雖然現在 jQuery 已經不流行了，但當初 jQuery 的設計者開發 jQuery 時所使用的設計模式是十分優雅的，到現今都還是一個十分直得學習的 Design pattern。
+那接下來我們就來看看 jQuery 的設計模式吧！
+
+我們在使用 jQuery 時，時常會寫到諸如此類的程式碼：
+```javascript
+$('div').css('color', 'red').slideUp(2000).slideDown(2000);
+```
+
+找到所有的 `div` 標籤，然後將它們的文字顏色設定為紅色，接著將它們向上滑動 2000 毫秒，最後再將它們向下滑動 2000 毫秒。
+我們可以透過不停的呼叫 jQuery 的方法來達到對於同一個元素的操控，而這樣的設計模式我們就稱它為 `Fluent Interface` / `Chaining Pattern` / `Method Chaining`。
+
+這種設計模式不是僅存於 jQuery 中，我們可以在許多的函式庫中看到這種設計模式的影子，例如在 PHP 處理日期的函式庫 `Carbon` 中，我們可以這樣寫：
+```php
+Carbon::now()->subDays(2)->addHours(5)->format('Y-m-d H:i:s');
+```
+
+那我們來仔細了解一下為什麼可以這樣寫
+當你每一次你呼叫 jQuery 的方法時，你對他的操作會被紀錄至你實例化後的物件中，而這個物件同時也會再被回傳，這樣你就可以繼續對這個物件進行操作。
+
+接下來我們利用 JavaScript 實作看看：
+```javascript
+class Person {
+    constructor(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+
+    setName(name) {
+        this.name = name;
+        return this;
+    }
+
+    toggleSex() {
+        this.sex = this.sex === "male" ? "female" : "male"
+        return this;
+    }
+}
+
+const me = new Person("hsuan", 18, "male")
+me.toggleSex().setName("hsuan chang")
+
+console.log(me.sex) // female
+console.log(me.name) // hsuan chang
+```
