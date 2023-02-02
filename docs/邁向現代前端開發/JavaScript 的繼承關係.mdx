@@ -34,21 +34,36 @@ function C() {}
 C.prototype = new B()
 ```
 
-這邊的繼承關係是 A 繼承 B，B 繼承 C，那麼 A、B、C 的原型鍊就會是這樣的：
-
-```js
-A.prototype = B.prototype = C.prototype = null
-```
-
 原型鍊是從下往上看的，也就是說 C 的原型物件是 B，B 的原型物件是 A，A 的原型物件是 null。
 `__proto__` 就是原型物件，也就是說 `__proto__` 就是原型鍊的下一個物件。
 
 ## __proto__ 與 prototype
-你可以把 `__proto__` 視為原型物件，而 `prototype` 則是原型鍊的下一個物件。
-`__proto__` 是物件的屬性，而 `prototype` 則是 Function 的屬性。
+`__proto__` 的作用是當前物件的上一層級原型物件
+`prototype` 是當前層級的原型物件。
 
 ```js
 function A() {}
+const a = new A()
+
+a.__proto__ === A.prototype // true
+```
+
+```js
+Function.__proto__.__proto__ === Object.prototype
+
+A.__proto__.__proto__ === Object.prototype
+A.prototype.__proto__ === Object.prototype
+Object.prototype === null
+```
+
+`a` 是 `A` 的 instance，`A` 是 `Function` 的 instance，`Function` 是 `Object` 的 instance
+
+這樣講好了，我們在 `new` 的時候就是把 A 微分，而取 `__proto__` 的時候就是把他積回去。
+但我們積回去的結果應該加上一個常數 C ，照這個概念，所以我們不會 = A 但是會等於 `A.prototype`。
+
+```js
+function A() {}
+function B() {}
 A.prototype = new B()
 A.__proto__ === Function.prototype // true
 B.__proto__ === Function.prototype // true
