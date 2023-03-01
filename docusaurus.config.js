@@ -26,7 +26,7 @@ const config = {
         defaultLocale: 'zh-Hant',
         locales: ['zh-Hant'],
     },
-    themes: ['@docusaurus/theme-mermaid'],
+    themes: ['@docusaurus/theme-mermaid', '@docusaurus/theme-live-codeblock'],
     markdown: {
         mermaid: true
     },

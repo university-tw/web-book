@@ -3,7 +3,7 @@ sidebar_position: 2
 ---
 
 # 課前須知
-這些事項請在第一次討論時間開始前做完
+這些事項請在第一次討論時間開始前做完，有些有多種安裝方式，自行選擇你適合的系統版本安裝
 
 ## 帳號申請
 ### Github 帳號
@@ -14,6 +14,14 @@ sidebar_position: 2
 確保你有一個JetBrains 帳號，沒有的話就註冊一個 https://account.jetbrains.com/login  
 同時申請 Education License：https://www.jetbrains.com/community/education/#students  
 你可以用 GitHub Education Pack 驗證，也可以自己拿學校信箱（gapp）或證件驗證
+
+:::caution
+建議直接用學校信箱驗證，因為GitHub Education Pack驗證需要等待一段時間
+:::
+
+### Google Classroom
+用你的學校 gapp 帳號登入 Google Classroom：https://classroom.google.com/c/NTk2MDY0NjIwMTky?cjc=r5rjgfn
+
 
 ## 安裝項目
 請確保在開課前安裝完下列項目！！！  
